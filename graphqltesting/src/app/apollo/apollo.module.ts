@@ -51,3 +51,21 @@ export class AppModule {
 //     cache: new InMemoryCache(),
 //   };
 // }
+
+// import { NgModule } from '@angular/core';
+// import { HttpClientModule } from '@angular/common/http';
+// import { ApolloModule } from 'apollo-angular';
+// import { HttpLinkModule } from 'apollo-angular/http-link'; // Updated import
+// import { apolloProvider } from './apolloConfig';
+
+// @NgModule({
+//   imports: [
+//     HttpClientModule,
+//     ApolloModule,
+//     HttpLinkModule, // Updated import
+//   ],
+//   providers: [apolloProvider],
+// })
+// export class AppModule {}
+
+
