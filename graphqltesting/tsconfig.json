@@ -15,16 +15,18 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
+    "target": "ES2018",
+    "module": "CommonJS",
+    "jsx": "preserve",
     "useDefineForClassFields": false,
+    "esModuleInterop": true,
     "lib": [
-      "ES2022",
-      "dom",
+      "ES2018",
       "esnext.asynciterable"
     ],
     "allowSyntheticDefaultImports": true
   },
+  "exclude": ["node_modules"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
