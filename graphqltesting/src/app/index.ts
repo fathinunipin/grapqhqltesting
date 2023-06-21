@@ -24,20 +24,20 @@
 // //in the end, run the server and pass in our Schema and Resolver.
 // startApolloServer(Schema, Resolvers);
 
-import client from './apolloConfig';
-import gql from 'graphql-tag';
+// import client from '../apolloConfig';
+// import gql from 'graphql-tag';
 
-const query = gql`
-  query {
-    hello
-  }
-`;
+// const query = gql`
+//   query {
+//     hello
+//   }
+// `;
 
-client
-  .query({ query })
-  .then((response) => {
-    console.log(response.data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+// client
+//   .query({ query })
+//   .then((response) => {
+//     console.log(response.data);
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
