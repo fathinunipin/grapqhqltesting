@@ -1,0 +1,29 @@
+fragment MovieInfo on Movie {
+    id
+    createdAt
+    updatedAt
+    title
+    description
+}
+
+query GetAllMovies {
+    getAllMovies {
+        ...MovieInfo
+    }
+}
+
+mutation CreateMovie($movieInputCreate: MovieInputCreate!) {
+    createMovie(movieInputCreate: $movieInputCreate) {
+        ...MovieInfo
+    }
+}
+
+mutation EditMovie($movieInputEdit: MovieInputEdit!) {
+    editMovie(movieInputEdit: $movieInputEdit) {
+        ...MovieInfo
+    }
+}
+
+mutation DeleteMovie($movieId: Int!) {
+    deleteMovie(movieId: $movieId)
+}

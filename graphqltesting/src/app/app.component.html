@@ -9,3 +9,8 @@
 </div> -->
 
 <!-- <app-todos></app-todos> -->
+
+<div class="card" *ngFor="let vehicle of data.vehicles">
+  <label class="content">Model: {{ vehicle.modelCode }}</label>
+  <label class="content">Brand: {{ vehicle.brandName }}</label>
+</div>

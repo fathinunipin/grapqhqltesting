@@ -21,6 +21,8 @@ export class ApolloComponent {
   users!: any[];
   loading = true;
   error: any;
+  articles: Array<any> | undefined;
+  private querySubstription: any;
 
   constructor(private apollo: Apollo) {
     this.apollo
@@ -33,6 +35,21 @@ export class ApolloComponent {
         this.error = errors;
       });
   }
+
+  // ngOnInit() {
+  //   this.querySubstription = this.apollo.watchQuery<any>({
+  //     query: articleQuery
+  //   })
+  //     .valueChanges
+  //     .subscribe(({data, loading}) => {
+  //       this.loading = loading;
+  //       this.articles = data.articles
+  //     })
+  //   }
+  
+  // ngOnDestroy() {
+  //   this.querySubstription.unsubscribe()
+  // }
 
 }
 
@@ -62,4 +79,5 @@ export class ApolloComponent {
 //     );
 //   }
 // }
+
 
