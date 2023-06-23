@@ -23,3 +23,22 @@
 //     console.log(response.data);
 //   }
 // }
+
+// import { Apollo } from 'apollo-angular';
+// import { Zeus } from './path/to/types';
+// import { Observable, map } from 'rxjs';
+
+// // Inject Apollo into your component or service
+
+// export class ZeusComponent {
+
+//   constructor(private apollo: Apollo) {}
+
+//   public getItems(): Observable<Zeus.GetItemsQuery['items']> {
+//     return this.apollo.query<Zeus.GetItemsQuery>({
+//       query: Zeus.GetItemsDocument,
+//     }).pipe(
+//       map(result => result.data.items)
+//     );
+//   }
+// }
