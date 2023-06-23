@@ -13,8 +13,8 @@ const {
 
 
 const Todos = [
-    { id: 1, name: 'Cook Meals', description: 'Need to cook meals'},
-    { id: 2, name: 'Wash Clothes', description: 'Need to put the clothes in WM'},
+    { id: 1, name: 'Sergio Aguero', description: 'Need to cook meals'},
+    { id: 2, name: 'Julian Alvarez', description: 'Need to put the clothes in WM'},
 ]
 
 const TodoType = new GraphQLObjectType({
