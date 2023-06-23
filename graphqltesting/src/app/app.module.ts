@@ -10,11 +10,18 @@ import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TodosComponent } from './todos/todos.component';
+import { RouterModule } from '@angular/router';
+import { BrowseComponent } from './browse/browse.component';
+import { CharacterComponent } from './character/character.component';
+import { SpeciesComponent } from './species/species.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent
+    TodosComponent,
+    BrowseComponent,
+    CharacterComponent,
+    SpeciesComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +29,8 @@ import { TodosComponent } from './todos/todos.component';
     GraphQLModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [{
     provide: APOLLO_OPTIONS,
