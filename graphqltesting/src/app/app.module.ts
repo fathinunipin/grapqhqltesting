@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { BrowseComponent } from './browse/browse.component';
 import { CharacterComponent } from './character/character.component';
 import { SpeciesComponent } from './species/species.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SpeciesComponent } from './species/species.component';
     TodosComponent,
     BrowseComponent,
     CharacterComponent,
-    SpeciesComponent
+    SpeciesComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
