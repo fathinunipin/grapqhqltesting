@@ -15,6 +15,7 @@ import { BrowseComponent } from './browse/browse.component';
 import { CharacterComponent } from './character/character.component';
 import { SpeciesComponent } from './species/species.component';
 import { TaskComponent } from './task/task.component';
+import { ZeussComponent } from './zeus/zeus.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TaskComponent } from './task/task.component';
     BrowseComponent,
     CharacterComponent,
     SpeciesComponent,
-    TaskComponent
+    TaskComponent,
+    ZeussComponent
   ],
   imports: [
     BrowserModule,
