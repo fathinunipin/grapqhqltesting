@@ -43,17 +43,143 @@
 //   }
 // }
 
+// import { Component, OnInit } from '@angular/core';
+// import { gql, GraphQLClient } from 'graphql-request';
+// import { Query, Mutation, User } from 'graphql-zeus';
+
+// @Component({
+//   selector: 'app-user',
+//   templateUrl: './user.component.html',
+//   styleUrls: ['./user.component.css']
+// })
+// export class UserComponent implements OnInit {
+//   private endpoint = 'https://your-graphql-endpoint.com/graphql';
+//   private client: GraphQLClient;
+
+//   constructor() {
+//     this.client = new GraphQLClient(this.endpoint);
+//   }
+
+//   ngOnInit(): void {
+//     // Perform GraphQL CRUD operations here
+//   }
+
+//   createUser(user: User): void {
+//     const mutation = gql`
+//       mutation CreateUser($user: UserInput!) {
+//         createUser(user: $user) {
+//           id
+//           name
+//           email
+//         }
+//       }
+//     `;
+
+//     const variables = { user };
+
+//     this.client.request<Mutation>(mutation, variables)
+//       .then((response) => {
+//         console.log('Created user:', response.createUser);
+//       })
+//       .catch((error) => {
+//         console.error('Error creating user:', error);
+//       });
+//   }
+
+//   getUser(id: string): void {
+//     const query = gql`
+//       query GetUser($id: ID!) {
+//         getUser(id: $id) {
+//           id
+//           name
+//           email
+//         }
+//       }
+//     `;
+
+//     const variables = { id };
+
+//     this.client.request<Query>(query, variables)
+//       .then((response) => {
+//         console.log('User:', response.getUser);
+//       })
+//       .catch((error) => {
+//         console.error('Error fetching user:', error);
+//       });
+//   }
+
+//   updateUser(id: string, updates: Partial<User>): void {
+//     const mutation = gql`
+//       mutation UpdateUser($id: ID!, $updates: UserInput!) {
+//         updateUser(id: $id, updates: $updates) {
+//           id
+//           name
+//           email
+//         }
+//       }
+//     `;
+
+//     const variables = { id, updates };
+
+//     this.client.request<Mutation>(mutation, variables)
+//       .then((response) => {
+//         console.log('Updated user:', response.updateUser);
+//       })
+//       .catch((error) => {
+//         console.error('Error updating user:', error);
+//       });
+//   }
+
+//   deleteUser(id: string): void {
+//     const mutation = gql`
+//       mutation DeleteUser($id: ID!) {
+//         deleteUser(id: $id)
+//       }
+//     `;
+
+//     const variables = { id };
+
+//     this.client.request<Mutation>(mutation, variables)
+//       .then(() => {
+//         console.log('User deleted successfully');
+//       })
+//       .catch((error) => {
+//         console.error('Error deleting user:', error);
+//       });
+//   }
+// }
+
 import { Component, OnInit } from '@angular/core';
-import { GraphQLClient } from 'graphql-request';
-import { Mutation, Query } from 'apollo-angular';
-import { User } from 'src/users.schema';
+import { gql, GraphQLClient } from 'graphql-request';
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+interface CreateUserResponse {
+  createUser: User;
+}
+
+interface GetUserResponse {
+  getUser: User;
+}
+
+interface UpdateUserResponse {
+  updateUser: User;
+}
+
+interface DeleteUserResponse {
+  deleteUser: boolean;
+}
 
 @Component({
   selector: 'app-zeuss',
   templateUrl: './zeus.component.html',
   styleUrls: ['./zeus.component.scss']
 })
-export class ZeussComponent implements OnInit {
+export class UserComponent implements OnInit {
   private endpoint = 'https://your-graphql-endpoint.com/graphql';
   private client: GraphQLClient;
 
@@ -66,7 +192,7 @@ export class ZeussComponent implements OnInit {
   }
 
   createUser(user: User): void {
-    const mutation = `
+    const mutation = gql`
       mutation CreateUser($user: UserInput!) {
         createUser(user: $user) {
           id
@@ -78,9 +204,9 @@ export class ZeussComponent implements OnInit {
 
     const variables = { user };
 
-    this.client.request<Mutation>(mutation, variables)
+    this.client.request<CreateUserResponse>(mutation, variables)
       .then((response) => {
-        // console.log('Created user:', response.createUser);
+        console.log('Created user:', response.createUser);
       })
       .catch((error) => {
         console.error('Error creating user:', error);
@@ -88,7 +214,7 @@ export class ZeussComponent implements OnInit {
   }
 
   getUser(id: string): void {
-    const query = `
+    const query = gql`
       query GetUser($id: ID!) {
         getUser(id: $id) {
           id
@@ -100,9 +226,9 @@ export class ZeussComponent implements OnInit {
 
     const variables = { id };
 
-    this.client.request<Query>(query, variables)
+    this.client.request<GetUserResponse>(query, variables)
       .then((response) => {
-        // console.log('User:', response.getUser);
+        console.log('User:', response.getUser);
       })
       .catch((error) => {
         console.error('Error fetching user:', error);
@@ -110,7 +236,7 @@ export class ZeussComponent implements OnInit {
   }
 
   updateUser(id: string, updates: Partial<User>): void {
-    const mutation = `
+    const mutation = gql`
       mutation UpdateUser($id: ID!, $updates: UserInput!) {
         updateUser(id: $id, updates: $updates) {
           id
@@ -122,9 +248,9 @@ export class ZeussComponent implements OnInit {
 
     const variables = { id, updates };
 
-    this.client.request<Mutation>(mutation, variables)
+    this.client.request<UpdateUserResponse>(mutation, variables)
       .then((response) => {
-        // console.log('Updated user:', response.updateUser);
+        console.log('Updated user:', response.updateUser);
       })
       .catch((error) => {
         console.error('Error updating user:', error);
@@ -132,7 +258,7 @@ export class ZeussComponent implements OnInit {
   }
 
   deleteUser(id: string): void {
-    const mutation = `
+    const mutation = gql`
       mutation DeleteUser($id: ID!) {
         deleteUser(id: $id)
       }
@@ -140,7 +266,7 @@ export class ZeussComponent implements OnInit {
 
     const variables = { id };
 
-    this.client.request<Mutation>(mutation, variables)
+    this.client.request<DeleteUserResponse>(mutation, variables)
       .then(() => {
         console.log('User deleted successfully');
       })
