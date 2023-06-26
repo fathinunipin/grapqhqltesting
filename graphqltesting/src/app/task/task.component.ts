@@ -21,10 +21,12 @@ export class TaskComponent implements OnInit {
           const { data } = response as { data: { tasks: any[] } };
           this.tasks = data.tasks;
           this.loading = false;
+          console.log('true');
         },
         (error) => {
           this.error = error.message;
           this.loading = false;
+          console.log('error');
         }
       );
     }
@@ -35,9 +37,11 @@ export class TaskComponent implements OnInit {
           const { data } = response as { data: { createTask: any } };
           this.tasks.push(data.createTask);
           this.newTask = {};
+          console.log('work');
         },
         (error) => {
           this.error = error.message;
+          console.log('not work');
         }
       );
     }
