@@ -179,7 +179,7 @@ interface DeleteUserResponse {
   templateUrl: './zeus.component.html',
   styleUrls: ['./zeus.component.scss']
 })
-export class UserComponent implements OnInit {
+export class ZeussComponent implements OnInit {
   private endpoint = 'https://your-graphql-endpoint.com/graphql';
   private client: GraphQLClient;
 
