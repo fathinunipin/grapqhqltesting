@@ -51,7 +51,7 @@ import { User } from 'src/users.schema';
 @Component({
   selector: 'app-zeuss',
   templateUrl: './zeus.component.html',
-  styleUrls: ['./zeus.component.css']
+  styleUrls: ['./zeus.component.scss']
 })
 export class ZeussComponent implements OnInit {
   private endpoint = 'https://your-graphql-endpoint.com/graphql';
