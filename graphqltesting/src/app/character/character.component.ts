@@ -13,8 +13,8 @@ export class CharacterComponent implements OnInit {
   constructor(private route: ActivatedRoute, private characterService: CharactersService) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(async (params: any) => {
-      this.character = await this.characterService.findCharacter(params.name);
+    this.route.queryParams.subscribe(async (params) => {
+      this.character = await this.characterService.findCharacter(params['name']);
     });
   }
 }
